@@ -12,7 +12,7 @@ The setup in this repository was verified on one laptop. Your results depend on 
 - Uses KVM for hardware-accelerated x86_64 guest CPU emulation.
 - Provides checks to confirm which GPU rendered the emulator.
 
-The laptop used for verification had an Intel UHD 630, NVIDIA GeForce GTX 1650 Mobile with 4 GB VRAM, Intel Core i5-9300H (4 cores / 8 threads), and 16 GB installed RAM (about 14 GiB available to Linux). It ran Ubuntu 26.04, GNOME on Wayland, NVIDIA driver 595, and Android Emulator 37.1.11 with an Android 35 x86_64 Pixel 6 Pro AVD. The emulator successfully selected the GTX 1650 for Vulkan/OpenGL rendering, KVM was usable, and Android booted. Those results are a reference, not a performance promise for other machines.
+The laptop used for verification had an Intel UHD 630, NVIDIA GeForce GTX 1650 Mobile with 4 GB VRAM, Intel Core i5-9300H (4 cores / 8 threads), and about 14 GiB of host memory reported by Linux. It ran Ubuntu 26.04, GNOME on Wayland, NVIDIA driver 595, and Android Emulator 37.1.11 with an Android 35 x86_64 Pixel 6 Pro AVD. The emulator successfully selected the GTX 1650 for Vulkan/OpenGL rendering, KVM was usable, and Android booted. Those results are a reference, not a performance promise for other machines.
 
 ## 1. Check your hardware and driver
 
