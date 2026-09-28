@@ -1,0 +1,22 @@
+#!/bin/sh
+set -eu
+
+sdk_root=${ANDROID_SDK_ROOT:-${ANDROID_HOME:-"$HOME/Android/Sdk"}}
+emulator="$sdk_root/emulator/emulator"
+
+if [ ! -x "$emulator" ]; then
+  echo "Android Emulator not found at: $emulator" >&2
+  echo "Set ANDROID_SDK_ROOT to your Android SDK directory." >&2
+  exit 1
+fi
+
+if [ "$#" -eq 0 ]; then
+  echo "Usage: android-emulator-nvidia -avd AVD_NAME [emulator options...]" >&2
+  exit 2
+fi
+
+exec env \
+  __NV_PRIME_RENDER_OFFLOAD=1 \
+  __GLX_VENDOR_LIBRARY_NAME=nvidia \
+  __VK_LAYER_NV_optimus=NVIDIA_only \
+  "$emulator" "$@" -gpu host
